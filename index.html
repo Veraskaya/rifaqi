@@ -1,260 +1,682 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>رفاقي | تطبيق اجتماعي لاكتشاف الأنشطة والتجارب</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>رفاقي | الرفقة الطيّبة، في كل خطوة</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root {
-    /* الألوان الحيوية المستوحاة من شعارك */
-    --primary-pink: #ff7ac6;
-    --secondary-teal: #4de0d2;
-    --accent-orange: #ff9671;
-    --bg-dark: #0f172a;
-    --card-bg: rgba(255, 255, 255, 0.05);
-}
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family:'Cairo',sans-serif;
-    background: var(--bg-dark);
-    color:white;
-    overflow-x:hidden;
+font-family:'Cairo',sans-serif;
+background:#0f172a;
+color:white;
+overflow-x:hidden;
+line-height:1.7;
+}
+
+.container{
+max-width:1250px;
+margin:auto;
+padding:0 20px;
+}
+
+section{
+padding:90px 0;
+}
+
+img{
+max-width:100%;
+display:block;
 }
 
 .hero{
-    min-height:100vh;
-    background: 
-    radial-gradient(circle at top left, var(--primary-pink) 0%, transparent 25%),
-    radial-gradient(circle at top right, var(--secondary-teal) 0%, transparent 25%),
-    linear-gradient(135deg, #0f172a, #111827, #1e293b);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:40px 20px;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+
+background:
+linear-gradient(rgba(15,23,42,0.72),rgba(15,23,42,0.82)),
+url('https://upload.wikimedia.org/wikipedia/commons/0/0d/Makam_El_Chahid.jpg');
+
+background-size:cover;
+background-position:center;
+}
+
+.hero-content{
+max-width:850px;
+padding:20px;
 }
 
 .logo{
-    width:150px;
-    height:auto;
-    border-radius:24px;
-    margin-bottom:20px;
-    box-shadow:0 10px 40px rgba(255,122,198,0.3);
+width:180px;
+margin:auto;
+margin-bottom:25px;
+filter:
+drop-shadow(0 0 15px rgba(0,217,255,0.35))
+drop-shadow(0 0 30px rgba(255,95,178,0.25));
 }
 
-h1{
-    font-size:3.5rem;
-    font-weight:800;
-    margin-bottom:15px;
-    background:linear-gradient(90deg, var(--primary-pink), var(--secondary-teal));
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+.hero h1{
+font-size:5rem;
+font-weight:800;
+margin-bottom:10px;
+
+background:linear-gradient(90deg,#00d9ff,#ff5fb2,#ffb347);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .tagline{
-    font-size:1.5rem;
-    color:#e2e8f0;
-    margin-bottom:25px;
-    font-weight: 600;
+font-size:1.5rem;
+font-weight:700;
+margin-bottom:25px;
 }
 
-.description{
-    max-width:850px;
-    line-height:1.8;
-    color:#cbd5e1;
-    font-size:1.2rem;
+.hero p{
+font-size:1.2rem;
+color:#e2e8f0;
+max-width:760px;
+margin:auto;
 }
 
-.section{
-    padding:100px 20px;
-    max-width:1200px;
-    margin:auto;
+.buttons{
+margin-top:35px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:15px 30px;
+border-radius:999px;
+font-weight:700;
+display:inline-block;
+transition:0.3s;
+text-decoration:none;
+}
+
+.primary{
+background:linear-gradient(90deg,#ff5fb2,#ff9966);
+color:white;
+}
+
+.secondary{
+background:rgba(255,255,255,0.08);
+color:white;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.btn:hover{
+transform:translateY(-4px);
 }
 
 .section-title{
-    text-align:center;
-    font-size:2.5rem;
-    margin-bottom:60px;
-    background: linear-gradient(90deg, var(--secondary-teal), var(--primary-pink));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+text-align:center;
+font-size:2.8rem;
+margin-bottom:70px;
+font-weight:800;
+
+background:linear-gradient(90deg,#00d9ff,#ff5fb2);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+.activities-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:28px;
 }
 
 .card{
-    background: var(--card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    border-radius: 30px;
-    overflow: hidden;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:30px;
+overflow:hidden;
+backdrop-filter:blur(10px);
+transition:0.3s;
 }
 
 .card:hover{
-    transform: translateY(-12px);
-    border-color: var(--primary-pink);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+transform:translateY(-8px);
 }
 
-.card-img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
+.card img{
+width:100%;
+height:240px;
+object-fit:cover;
 }
 
-.card-content {
-    padding: 30px;
+.card-content{
+padding:25px;
+}
+
+.badge{
+display:inline-block;
+padding:7px 15px;
+border-radius:999px;
+background:rgba(0,217,255,0.15);
+color:#00d9ff;
+margin-bottom:15px;
+font-size:0.9rem;
 }
 
 .card h3{
-    margin-bottom:15px;
-    font-size:1.5rem;
-    color: var(--secondary-teal);
+margin-bottom:15px;
+font-size:1.3rem;
 }
 
 .card p{
-    line-height:1.7;
-    color:#cbd5e1;
-    font-size: 1.05rem;
+color:#cbd5e1;
 }
 
-.pro-section {
-    background: rgba(77, 224, 210, 0.05);
-    border-radius: 50px;
-    padding: 60px 40px;
-    margin: 40px 0;
-    border: 1px dashed var(--secondary-teal);
+.activity-footer{
+display:flex;
+justify-content:space-between;
+margin-top:18px;
+color:#94a3b8;
+font-size:0.95rem;
 }
 
-.address-footer {
-    background: #080d1a;
-    padding: 80px 20px 40px;
-    border-top: 2px solid var(--primary-pink);
-    text-align: center;
+.two-columns{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
 }
 
-.contact-info {
-    margin-bottom: 40px;
-    color: #94a3b8;
-    font-size: 1.1rem;
+.feature-box{
+display:flex;
+gap:18px;
+margin-bottom:25px;
 }
 
-.contact-info strong { color: var(--secondary-teal); }
-.contact-info a { color: var(--primary-pink); text-decoration: none; }
-
-.btn-main {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 16px 40px;
-    background: linear-gradient(90deg, var(--primary-pink), var(--accent-orange));
-    color: white;
-    border-radius: 50px;
-    font-weight: 800;
-    text-decoration: none;
-    transition: 0.3s;
+.feature-icon{
+width:55px;
+height:55px;
+min-width:55px;
+border-radius:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#ff5fb2,#00d9ff);
+font-size:1.3rem;
 }
 
-.btn-main:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 122, 198, 0.4);
+.feature-text h4{
+margin-bottom:6px;
+font-size:1.2rem;
 }
 
-@media(max-width:768px){
-    h1{ font-size:2.5rem; }
+.feature-text p{
+color:#cbd5e1;
 }
+
+.side-image img{
+border-radius:35px;
+height:650px;
+object-fit:cover;
+width:100%;
+}
+
+.dark-section{
+background:#111827;
+}
+
+.safety-box{
+max-width:950px;
+margin:auto;
+text-align:center;
+
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+
+padding:60px 40px;
+border-radius:35px;
+}
+
+.safety-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+margin-top:35px;
+}
+
+.safety-card{
+background:rgba(255,255,255,0.05);
+padding:22px;
+border-radius:22px;
+font-weight:700;
+}
+
+.cta{
+background:linear-gradient(135deg,#ff5fb2,#00d9ff);
+padding:80px 30px;
+border-radius:40px;
+text-align:center;
+color:#0f172a;
+}
+
+.cta h2{
+font-size:2.7rem;
+margin-bottom:20px;
+}
+
+.contact{
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.contact p{
+margin-bottom:12px;
+color:#cbd5e1;
+}
+
+footer{
+padding:30px;
+text-align:center;
+color:#94a3b8;
+}
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:3rem;
+}
+
+.two-columns{
+grid-template-columns:1fr;
+}
+
+.side-image img{
+height:420px;
+}
+
+.section-title{
+font-size:2rem;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
+
 <section class="hero">
-    <img class="logo" src="https://raw.githubusercontent.com/ImaneBK/Rifaqi/main/logo.png" alt="Rifaqi Logo" />
-    <h1>رفاقي</h1>
-    <p class="tagline">تطبيق اجتماعي.. حيث تلتقي الهوايات بالتجارب</p>
-    <p class="description">
-        رفاقي هو المزيج الأمثل بين بناء المجتمعات واكتشاف التجارب السياحية الاحترافية. سواء كنت تبحث عن مجموعة تشاركك شغفك أو ترغب في حجز مغامرة فريدة مع خبراء محليين، رفاقي هو وجهتك.
-    </p>
-    <a href="#" class="btn-main">انضم إلى مجتمعنا</a>
+
+<div class="hero-content">
+
+<img src="logo.png" class="logo">
+
+<h1>رفاقي</h1>
+
+<div class="tagline">
+الرفقة الطيّبة، في كل خطوة
+</div>
+
+<p>
+اكتشف أنشطة محلية، لقاءات، رحلات يومية وتجارب جديدة مع أشخاص يشاركونك نفس الاهتمامات في الجزائر.
+</p>
+
+<div class="buttons">
+<a href="#" class="btn primary">ابدأ الاستكشاف</a>
+<a href="#" class="btn secondary">قريبًا بين يديك</a>
+</div>
+
+</div>
+
 </section>
 
-<section class="section">
-    <h2 class="section-title">كيف يعمل رفاقي؟</h2>
-    <div class="features-grid">
-        <div class="card">
-            <div class="card-content">
-                <h3>💡 اقترح وشارك (Meetup Style)</h3>
-                <p>اقترح نشاطاً - كجولة مشي أو جلسة تصوير - وشاركه لينظم لك رفاق لهم نفس الاهتمام. كون صداقات جديدة واستمتع بخروجك، لن تشعر بالملل بعد الآن.</p>
-            </div>
-        </div>
+<!-- ACTIVITIES -->
 
-        <div class="card">
-            <div class="card-content">
-                <h3>🏛️ تجارب احترافية (Viator Style)</h3>
-                <p>احجز تجارب سياحية وأنشطة استثنائية ينظمها مرشدون معتمدون ووكالات محلية. من الجولات التاريخية إلى ورش العمل المتخصصة، كل شيء بلمسة احترافية.</p>
-            </div>
-        </div>
+<section>
 
-        <div class="card">
-            <div class="card-content">
-                <h3>🛡️ مجتمع موثوق وآمن</h3>
-                <p>نجمع بين عفوية اللقاءات الاجتماعية ودقة التنظيم الاحترافي لضمان أعلى مستويات الأمان والمصداقية في كل تجربة تخوضها.</p>
-            </div>
-        </div>
-    </div>
+<div class="container">
+
+<h2 class="section-title">
+أنشطة وتجارب من الجزائر 🇩🇿
+</h2>
+
+<div class="activities-grid">
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Oran_Front_de_Mer.jpg">
+
+<div class="card-content">
+<div class="badge">وهران</div>
+<h3>☕ خرجة مقهى وفرون دو مير</h3>
+<p>جلسة شبابية على كورنيش وهران مع أجواء البحر والمقاهي.</p>
+
+<div class="activity-footer">
+<span>👥 12 مشارك</span>
+<span>⭐ 4.9</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Casbah_of_Algiers.jpg">
+
+<div class="card-content">
+<div class="badge">الجزائر العاصمة</div>
+<h3>🏛️ جولة في القصبة</h3>
+<p>اكتشف الأزقة التاريخية والأسواق التقليدية في قلب العاصمة.</p>
+
+<div class="activity-footer">
+<span>👥 18 مشارك</span>
+<span>⭐ 4.8</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Constantine_Bridge.jpg">
+
+<div class="card-content">
+<div class="badge">قسنطينة</div>
+<h3>🌉 زيارة الجسور المعلقة</h3>
+<p>رحلة يومية لاكتشاف جمال الجسور والمناظر الطبيعية الساحرة.</p>
+
+<div class="activity-footer">
+<span>👥 20 مشارك</span>
+<span>⭐ 4.7</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Tipasa_roman_ruins.jpg">
+
+<div class="card-content">
+<div class="badge">تيبازة</div>
+<h3>🌊 رحلة يومية إلى تيبازة</h3>
+<p>استمتع بالبحر والآثار الرومانية في واحدة من أجمل الرحلات المحلية.</p>
+
+<div class="activity-footer">
+<span>👥 25 مشارك</span>
+<span>⭐ 5.0</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Djurdjura_Mountains.jpg">
+
+<div class="card-content">
+<div class="badge">تيزي وزو</div>
+<h3>🥾 Hiking في جبال جرجرة</h3>
+<p>مغامرة جماعية وسط الطبيعة والجبال والأجواء المنعشة.</p>
+
+<div class="activity-footer">
+<span>👥 15 مشارك</span>
+<span>⭐ 4.9</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Sidi_Fredj_Algeria.jpg">
+
+<div class="card-content">
+<div class="badge">سيدي فرج</div>
+<h3>🌅 خرجة بحر وغروب</h3>
+<p>أمسية شبابية على البحر مع جلسات تصوير وأجواء صيفية.</p>
+
+<div class="activity-footer">
+<span>👥 16 مشارك</span>
+<span>⭐ 4.8</span>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section">
-    <h2 class="section-title">نشاطات لا حصر لها</h2>
-    <div class="features-grid">
-        <div class="card" style="grid-column: span 1;">
-            <img src="https://images.unsplash.com/photo-1541625602330-2277a4c4b282?auto=format&fit=crop&q=80&w=800" alt="Bike Tour" class="card-img">
-            <div class="card-content">
-                <h3>تواصل، استكشف، وانطلق!</h3>
-                <p>
-                    سواء كانت جولة بالدراجات في قلب المدينة، رحلة هايكنج في الجبال، أو زيارة لمعرض فني، رفاقي يربطك بأشخاص حقيقيين يشاركونك نفس الاهتمام. 
-                    اكتشف مرشدين سياحيين ينظمون جولات يومية، ووكالات سياحية محلية تقدم أنشطة أصيلة بعيدة عن الروتين اليومي.
-                </p>
-            </div>
-        </div>
+<!-- COMMUNITY -->
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&q=80&w=800" alt="City Tour" class="card-img">
-            <div class="card-content">
-                <h3>أعد اكتشاف مدينتك</h3>
-                <p>لا تتوقف عند الدراجات! اكتشف جولات المشي الثقافية، تذوق الطعام المحلي، والأنشطة الجماعية التي تحول مدينتك إلى ساحة مغامرات كبرى.</p>
-            </div>
-        </div>
-    </div>
+<section class="dark-section">
+
+<div class="container">
+
+<div class="two-columns">
+
+<div>
+
+<div class="badge">
+👥 للمستخدمين
+</div>
+
+<h2 style="font-size:3rem;margin-bottom:25px;">
+أنشئ نشاطك وشارك اهتماماتك
+</h2>
+
+<p style="color:#cbd5e1;margin-bottom:35px;">
+أنشئ خرجاتك وأنشطتك بسهولة وحدد المكان والوقت وعدد المشاركين،
+ثم دع أشخاصًا يشاركونك نفس الاهتمامات ينضمون إليك.
+</p>
+
+<div class="feature-box">
+<div class="feature-icon">📍</div>
+
+<div class="feature-text">
+<h4>أنشئ أي نشاط</h4>
+<p>مقاهي، رياضة، تصوير، نزهات أو رحلات يومية.</p>
+</div>
+</div>
+
+<div class="feature-box">
+<div class="feature-icon">🗓️</div>
+
+<div class="feature-text">
+<h4>حدد كل التفاصيل</h4>
+<p>الموقع، الوقت، عدد المشاركين والشروط.</p>
+</div>
+</div>
+
+<div class="feature-box">
+<div class="feature-icon">🤝</div>
+
+<div class="feature-text">
+<h4>دع الآخرين ينضمون</h4>
+<p>سيظهر نشاطك لأشخاص يملكون نفس الاهتمامات.</p>
+</div>
+</div>
+
+<div class="feature-box">
+<div class="feature-icon">⭐</div>
+
+<div class="feature-text">
+<h4>شارك التجربة</h4>
+<p>صور، تقييمات وتعليقات بعد انتهاء النشاط.</p>
+</div>
+</div>
+
+</div>
+
+<div class="side-image">
+<img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="address-footer">
-    <div class="contact-info">
-        <strong>CERIST Incubator</strong><br>
-        Digital Innovation Hub<br>
-        Ben Aknoun, Algiers<br><br>
-        البريد الإلكتروني: <a href="mailto:incubator@cerist.dz">incubator@cerist.dz</a><br>
-        الموقع: <a href="https://incubator.cerist.dz" target="_blank">incubator.cerist.dz</a>
-    </div>
-    
-    <p style="color: #475569; font-size: 0.9rem;">
-        جميع الحقوق محفوظة لـ رفاقي &copy; 2026
-    </p>
+<!-- SAFETY -->
+
+<section>
+
+<div class="container">
+
+<div class="safety-box">
+
+<div class="badge">
+🛡️ الأمان والثقة
+</div>
+
+<h2 style="font-size:2.6rem;margin:20px 0;">
+مجتمع موثوق وتجارب براحة أكبر
+</h2>
+
+<p style="color:#cbd5e1;">
+يتم التحقق من هوية المستخدمين عبر رقم الهاتف والبريد الإلكتروني
+مع نظام تقييمات وإدارة المشاركين لتجربة أكثر أمانًا وراحة.
+</p>
+
+<div class="safety-grid">
+
+<div class="safety-card">
+✅ حسابات موثقة
+</div>
+
+<div class="safety-card">
+⭐ تقييمات حقيقية
+</div>
+
+<div class="safety-card">
+👥 تحكم في المشاركين
+</div>
+
+<div class="safety-card">
+🚫 نظام للإبلاغ والحماية
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
+
+<!-- PROFESSIONALS -->
+
+<section class="dark-section">
+
+<div class="container">
+
+<div class="two-columns">
+
+<div class="side-image">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Place_des_martyrs_Alger.jpg">
+</div>
+
+<div>
+
+<div class="badge">
+🧭 للمحترفين
+</div>
+
+<h2 style="font-size:3rem;margin-bottom:25px;">
+نظّم رحلاتك وجولاتك على رفاقي
+</h2>
+
+<p style="color:#cbd5e1;margin-bottom:30px;">
+سواء كنت مرشدًا سياحيًا أو منظم رحلات يومية أو وكالة سياحية،
+يساعدك رفاقي على الوصول إلى جمهور أكبر وعرض أنشطتك في مكان واحد.
+</p>
+
+<div class="feature-box">
+<div class="feature-icon">🌍</div>
+
+<div class="feature-text">
+<h4>نشر الرحلات بسهولة</h4>
+<p>أنشئ جولاتك ورحلاتك اليومية في دقائق.</p>
+</div>
+</div>
+
+<div class="feature-box">
+<div class="feature-icon">📲</div>
+
+<div class="feature-text">
+<h4>إدارة الحجوزات</h4>
+<p>استقبل المشاركين ونظم الرحلات بسهولة.</p>
+</div>
+</div>
+
+<div class="feature-box">
+<div class="feature-icon">⭐</div>
+
+<div class="feature-text">
+<h4>ابنِ سمعتك</h4>
+<p>احصل على تقييمات حقيقية من المشاركين.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section>
+
+<div class="container">
+
+<div class="cta">
+
+<h2>
+كل تجربة أحلى مع رفاقي 💫
+</h2>
+
+<p>
+اخرج، اكتشف، وشارك اللحظة مع مجتمع يحب التجارب الحقيقية.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact">
+
+<div class="container">
+
+<h2 class="section-title">
+تواصل معنا
+</h2>
+
+<p><strong>CERIST Incubator</strong></p>
+<p>Digital Innovation Hub</p>
+<p>Ben Aknoun, Algiers</p>
+<p>Email: incubator@cerist.dz</p>
+<p>Web: incubator.cerist.dz</p>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Rifaqi — جميع الحقوق محفوظة
+</footer>
 
 </body>
 </html>
